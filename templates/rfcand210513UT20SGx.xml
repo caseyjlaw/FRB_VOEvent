@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<voe:VOEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:voe="http://www.ivoa.net/xml/VOEvent/v2.0" xsi:schemaLocation="http://www.ivoa.net/xml/VOEvent/v2.0 http://www.ivoa.net/xml/VOEvent/VOEvent-v2.0.xsd" version="2.0" role="test" ivorn="ivo://realfast.io/realfast#rfcand210513UT20SGx/59347.86525149809">
+	<Who>
+		<AuthorIVORN>ivo://realfast.io/contact</AuthorIVORN>
+		<Date>2021-05-13T20:45:57.729</Date>
+		<Author><contactEmail>claw@astro.caltech.edu</contactEmail><contactName>Casey Law</contactName></Author>
+	</Who>
+	<What>
+		<Param name="AlertType" dataType="string" value="Preliminary">
+		</Param>
+		<Group name="observatory parameters">
+			<Param dataType="float" name="beam_semi-major_axis" ucd="instr.beam;pos.errorEllipse;phys.angSize.smajAxis" unit="SS" value="46.0207064362107"/>
+			<Param dataType="float" name="beam_semi-minor_axis" ucd="instr.beam;pos.errorEllipse;phys.angSize.sminAxis" unit="SS" value="38.82997105555278"/>
+			<Param dataType="float" name="beam_rotation_angle" ucd="instr.beam;pos.errorEllipse;instr.offset" unit="Degrees" value="-999"/>
+			<Param dataType="float" name="sampling_time" ucd="time.resolution" unit="ms" value="5.0"/>
+			<Param dataType="float" name="bandwidth" ucd="instr.bandwidth" unit="MHz" value="454.0"/>
+			<Param dataType="int" name="nchan" ucd="meta.number;em.freq;em.bin" unit="None" value="128"/>
+			<Param dataType="float" name="centre_frequency" ucd="em.freq;instr" unit="MHz" value="2266.6666666666665"/>
+			<Param dataType="int" name="npol" unit="None" value="2"/>
+			<Param dataType="int" name="bits_per_sample" unit="None" value="2"/>
+			<Param name="backend" value="WIDAR"/>
+		</Group>
+		<Group name="event parameters">
+			<Param dataType="float" name="dm" ucd="phys.dispMeasure;em.radio.2000-3000MHz" unit="pc/cm^3" value="2"/>
+			<Param dataType="float" name="dm_error" ucd="stat.error;phys.dispMeasure" unit="pc/cm^3" value="28"/>
+			<Param dataType="float" name="width" ucd="time.duration;src.var.pulse" unit="ms" value="5.0"/>
+			<Param dataType="float" name="snr" ucd="stat.snr" unit="None" value="22.829977"/>
+			<Param dataType="float" name="gl" ucd="pos.galactic.lon" unit="Degrees" value="96.349076623925"/>
+			<Param dataType="float" name="gb" ucd="pos.galactic.lat" unit="Degrees" value="-60.191098067540224"/>
+		</Group>
+		<Group name="advanced parameters">
+		</Group>
+	</What>
+	<WhereWhen>
+		<ObsDataLocation>
+			<ObservatoryLocation id="VLA">
+			<AstroCoordSystem id="UTC-GEOD-TOPO"/>
+			<AstroCoords coord_system_id="UTC-GEOD-TOPO">
+			<Position3D unit="deg-deg-m">
+			  <Value3>
+			    <C1>107.6184</C1>
+			    <C2>34.0784</C2>
+			    <C3>2124.456</C3>
+			  </Value3>
+			</Position3D>
+			</AstroCoords>
+			</ObservatoryLocation>
+			<ObservationLocation>
+				<AstroCoordSystem id="UTC-FK5-GEO"/><AstroCoords coord_system_id="UTC-FK5-GEO">
+				<Time unit="s"><TimeInstant><ISOTime>2021-05-13T20:45:57.729</ISOTime></TimeInstant></Time>
+				<Position2D unit="deg"><Name1>RA</Name1><Name2>Dec</Name2><Value2><C1>0.006391764729975987</C1><C2>0.0</C2></Value2><Error2Radius>0.006391764782807042</Error2Radius></Position2D>
+				</AstroCoords>
+			</ObservationLocation>
+		</ObsDataLocation>
+	</WhereWhen>
+	<How>
+		<Description>Discovered by realfast as candId test_59347.86525149809.2.1_seg0-i0-dm2-dt0</Description>		<Reference uri="http://realfast.io"/>		</How>
+	<Why importance="1.0">
+			<Concept></Concept><Description>Detection of a new FRB by RealFast</Description>
+		<Name>rfcand210513UT20SGx</Name>
+	</Why>
+</voe:VOEvent>
