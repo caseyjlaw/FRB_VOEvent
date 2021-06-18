@@ -126,7 +126,10 @@ def set_dict(ve, groupid, phot_dict={}, event_dict={}):
 
     params = voeventparse.get_grouped_params(ve)
     tns_dict['frb_report']['0']["dm"] = params['event parameters']['dm']['value']
-    tns_dict['frb_report']['0']["dmerr"] = params['event parameters']['dm_error']['value']
+    try:
+        tns_dict['frb_report']['0']["dmerr"] = params['event parameters']['dm_error']['value']
+    except KeyError:
+        pass
     tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["snr"] = params['event parameters']['snr']['value']
     tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["burst_width"] = params['event parameters']['width']['value']
     
