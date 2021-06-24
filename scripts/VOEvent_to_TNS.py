@@ -46,9 +46,9 @@ tns_dict = {
             "flux": "",
             "flux_error": "",
             "limiting_flux": "",
-            "flux_units": "select",
-            "filter_value": "select",
-            "instrument_value": "select",
+            "flux_units": "",
+            "filter_value": "",
+            "instrument_value": "",
             "snr": "",
             "fluence": "",
             "fluence_err": "",
@@ -114,13 +114,16 @@ def set_dict(ve, groupid, phot_dict={}, event_dict={}):
     - event_dict is dictionary for other TNS keys (from frb_report set): "internal_name", "reporter", "remarks", "host_name", "repeater_of_objid".
     """
 
-    tns_dict['frb_report']['0']["internalname"] = ve.Why.Name
+    tns_dict['frb_report']['0']["internal_name"] = str(ve.Why.Name)
+    tns_dict['frb_report']['0']["reporter"] = "Casey J. Law"
     pos = voeventparse.get_event_position(ve)
     tns_dict['frb_report']['0']['ra']['value'] = pos.ra
     tns_dict['frb_report']['0']['dec']['value'] = pos.dec
     tns_dict['frb_report']['0']['ra']['error'] = pos.err
     tns_dict['frb_report']['0']['dec']['error'] = pos.err
-    tns_dict['frb_report']['0']["discovery_datetime"] = voeventparse.get_event_time_as_utc(ve).isoformat()
+    dt = voeventparse.get_event_time_as_utc(ve)
+    dtstring = dt.strftime('%Y-%m-') + str(((dt.second/60 + dt.minute)/60 +dt.hour)/24+dt.day)
+    tns_dict['frb_report']['0']["discovery_datetime"] = dtstring
     tns_dict['frb_report']['0']["reporting_groupid"] = groupid
     tns_dict['frb_report']['0']["groupid"] = groupid
     tns_dict['frb_report']['0']["at_type"] = "5"  # FRBs
@@ -133,7 +136,17 @@ def set_dict(ve, groupid, phot_dict={}, event_dict={}):
         pass
     tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["snr"] = params['event parameters']['snr']['value']
     tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["burst_width"] = params['event parameters']['width']['value']
-    
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["filter_value"] = "1.5 GHz"
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["instrument_value"] = "DSA-110"
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["flux"] = 0
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["flux_error"] = 0
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["limiting_flux"] = 0
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["obsdate"] = dtstring
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["flux_units"] = "Jy"
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["ref_freq"] = "1.5 GHz"
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["inst_bandwidth"] = "256 MHz"
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["channels_no"] = 1024
+
     # set photometry values
     for key, value in phot_dict.items():
         if key in tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]:
