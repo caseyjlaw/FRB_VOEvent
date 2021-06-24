@@ -114,6 +114,7 @@ def set_dict(ve, groupid, phot_dict={}, event_dict={}):
     - event_dict is dictionary for other TNS keys (from frb_report set): "internal_name", "reporter", "remarks", "host_name", "repeater_of_objid".
     """
 
+    tns_dict['frb_report']['0']["internalname"] = ve.Why.Name
     pos = voeventparse.get_event_position(ve)
     tns_dict['frb_report']['0']['ra']['value'] = pos.ra
     tns_dict['frb_report']['0']['dec']['value'] = pos.dec
