@@ -145,8 +145,8 @@ def set_dict(ve, groupid, phot_dict={}, event_dict={}):
     tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["flux_units"] = "Jy"
     tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["ref_freq"] = "1405"
     tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["inst_bandwidth"] = "250"
-    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["channels_no"] = 2048  # TODO: chdck
-    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["sampling_time"] = 1  # TODO; check
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["channels_no"] = 1024
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["sampling_time"] = 1
 
     # set photometry values
     for key, value in phot_dict.items():
