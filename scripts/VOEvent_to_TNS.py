@@ -136,8 +136,8 @@ def set_dict(ve, groupid, phot_dict={}, event_dict={}):
         pass
     tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["snr"] = params['event parameters']['snr']['value']
     tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["burst_width"] = params['event parameters']['width']['value']
-    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["filter_value"] = 0   # "other"; could get specific value by asking Ofer Yaron
-    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["instrument_value"] = 0  # "other; as for filter_value
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["filter_value"] = 129
+    tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["instrument_value"] = 239
     tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["flux"] = 0   # TODO: set this
     tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["flux_error"] = 0   # TODO: set this
     tns_dict['frb_report']['0']["photometry"]["photometry_group"]["0"]["limiting_flux"] = 0
