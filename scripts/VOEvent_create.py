@@ -1,16 +1,16 @@
-    import astropy.coordinates as coord
-    import astropy.units as u
-    from astropy.io import ascii
-    from astropy.coordinates import SkyCoord
-    from astropy.time import Time
-    import voeventparse as vp
-    import datetime
-    import os
-    import sys
-    import pytz
-    import numpy as np
-    import argparse
-    from xml.dom import minidom
+import astropy.coordinates as coord
+import astropy.units as u
+from astropy.io import ascii
+from astropy.coordinates import SkyCoord
+from astropy.time import Time
+import voeventparse as vp
+import datetime
+import os
+import sys
+import pytz
+import numpy as np
+import argparse
+from xml.dom import minidom
 
 
 
@@ -92,7 +92,7 @@ def NewVOEvent(dm, dm_err, width, snr, flux, ra, dec, semiMaj, semiMin, ymw16, n
     v.Why.Name = name
 
     if vp.valid_as_v2_0(v):
-        with open('%s.xml' % utc, 'wb') as f:
+        with open(f'{utc}.xml', 'wb') as f:
             voxml = vp.dumps(v)
             xmlstr = minidom.parseString(voxml).toprettyxml(indent="   ")
             f.write(xmlstr)
@@ -101,7 +101,7 @@ def NewVOEvent(dm, dm_err, width, snr, flux, ra, dec, semiMaj, semiMin, ymw16, n
             print(vp.prettystr(v.WhereWhen))
             print(vp.prettystr(v.Why))
     else:
-        print "Unable to write file %s.xml" % name
+        print(f"Unable to write file {name}.xml")
 
 
 if __name__ == "__main__":
@@ -140,7 +140,7 @@ if __name__ == "__main__":
     imp = args.importance
     utc = args.utc
 
-    print dm, dm_err, width, flux, ra, dec, semiMaj, semiMin, ymw16, name, imp, utc
+    print(dm, dm_err, width, flux, ra, dec, semiMaj, semiMin, ymw16, name, imp, utc)
 
     # Parse coordinates
     c = SkyCoord(ra=ra*u.degree, dec=dec*u.degree, frame='icrs')
